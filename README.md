@@ -23,44 +23,6 @@ df = pd.read_clipboard(sep='\t')
 df.head()
 ```
 
-## sql数据集
-```python
-## python读取本地数据集
-## excel文件读取
-import re
-import pandas  as pd
-from datetime import datetime
-import time
-
-def read_xlsx(path,sheet_name):
-    xlsx_file = pd.ExcelFile(path) ##路径
-    table = xlsx_file.parse(sheet_name) ##选取表
-    return table
-
-if __name__ == "__main__":
-    path = '/Users/username/Downloads'
-    file_name ='数据.xlsx'
-    path = path+"/"+file_name
-    sheet_name_list = {
-    'hive':'Sheet',
-    'mysql':'Sheet4'
-    }
-    sheet_name = sheet_name_list['hive']
-    df = read_xlsx(path,sheet_name)
-## 将数据集上传到Mysql数据库
-import pymysql
-from sqlalchemy import create_engine
-def py_mysql(table,table_name):
-    try:
-        engine = create_engine("mysql+pymysql://ministep:datastep@111.230.56.74:3306/temp_db?charset=utf8mb4")
-        table.to_sql(name=table_name,con=engine,if_exists='replace',index=False,chunksize=10000)
-        #dtype={'消费金额binned':sqlalchemy.types.NVARCHAR(255)}
-        print('数据库写入成功')
-    except :
-        print ('数据库写入失败')
-if __name__ == "__main__":
-    py_mysql(df,'tmp_save_data')
-```
 
 
 
