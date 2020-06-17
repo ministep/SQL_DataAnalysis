@@ -38,7 +38,6 @@ def read_xlsx(path,sheet_name):
     return table
 
 if __name__ == "__main__":
-    start_time = time.time() # 开始时间
     path = '/Users/username/Downloads'
     file_name ='数据.xlsx'
     path = path+"/"+file_name
@@ -47,16 +46,10 @@ if __name__ == "__main__":
     'mysql':'Sheet4'
     }
     sheet_name = sheet_name_list['hive']
-    #sheet_name = sheet_name_list['email']    
-    #df = read_xlsx(path,sheet_name)
-    #print(df.head())
-    end_time = time.time() #结束时间
-    print("程序耗时%f秒." % (end_time - start_time))
-
+    df = read_xlsx(path,sheet_name)
 ## 将数据集上传到Mysql数据库
 import pymysql
 from sqlalchemy import create_engine
-#import mysql.connector as sql
 def py_mysql(table,table_name):
     try:
         engine = create_engine("mysql+pymysql://ministep:datastep@111.230.56.74:3306/temp_db?charset=utf8mb4")
@@ -66,13 +59,7 @@ def py_mysql(table,table_name):
     except :
         print ('数据库写入失败')
 if __name__ == "__main__":
-    start_time = time.time() # 开始时间
-    try:
-        py_mysql(df,'tmp_save_data')
-    except:
-        print('sql查询失败')
-    end_time = time.time() #结束时间
-    print("程序耗时%f秒." % (end_time - start_time))
+    py_mysql(df,'tmp_save_data')
 ```
 
 
