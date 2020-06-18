@@ -19,9 +19,14 @@ SQL数据分析
 
 ## Python读取剪贴板数据
 ```python
+## 读取剪贴板数据
 import pandas as pd
 df = pd.read_clipboard(sep='\t')
 df.head()
+## 将df数据转换成list
+data =df.to_dict('records')
+## 将字典列表转成成DataFrame
+df_v1 = pd.DataFrame(sales)
 ```
 
 
