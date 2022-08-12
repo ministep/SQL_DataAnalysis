@@ -3,6 +3,10 @@ SQL数据分析
 ![star]( https://visitor-badge.glitch.me/badge?page_id=ministep_sql_dataanalysis)
 [![HitCount](http://hits.dwyl.com/keministep/SQL_DataAnalysis.svg)](http://hits.dwyl.com/keministep/SQL_DataAnalysis)
 
+## 内容已经迁移到：个人网站中，详情访问：
+[大数据 - 大数据分析](http://bigdata.ministep.cn/ )
+
+
 ## Issues
 在issues记录数据分析问题，供参考解答
 
